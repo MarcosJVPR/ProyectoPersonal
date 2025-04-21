@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zolarium – Tarot Cósmico</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Macondo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="particles"></div>
+
+    <main class="container">
+      <h1>Zolarium</h1>
+      <p class="subtitle">Tarot Cósmico por Marcos Pérez</p>
+
+      <button onclick="getCard()">🔮 Tirar carta del día</button>
+
+      <div id="card" class="card hidden">
+        <img id="cardImage" src="" alt="Carta del día" />
+        <h2 id="cardName"></h2>
+        <p id="cardMeaning"></p>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
