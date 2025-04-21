@@ -11,6 +11,8 @@ import authRoutes from "./backend/routes/auth.js";
 // Cargar variables de entorno
 dotenv.config();
 
+console.log("🧪 MONGODB_URI es:", process.env.MONGODB_URI);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
