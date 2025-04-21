@@ -4,6 +4,7 @@ import { getCardOfTheDay, createCard } from "../controllers/cardsController.js";
 const router = express.Router();
 
 router.get("/", (req, res) => {
+  console.log("✅ Entrando a GET /api/cards");
   res.send("🪄 /api/cards está vivo");
 });
 
