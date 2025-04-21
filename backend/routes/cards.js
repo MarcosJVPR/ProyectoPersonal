@@ -8,7 +8,10 @@ router.get("/", (req, res) => {
   res.send("🪄 Ruta /api/cards funcionando");
 });
 
-router.get("/daily", getCardOfTheDay);
+router.get("/daily", (req, res, next) => {
+  console.log("📥 Petición recibida en /daily");
+  next();
+}, getCardOfTheDay);
 router.post("/", createCard);
 
 export default router;
