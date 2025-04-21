@@ -25,7 +25,7 @@ app.use("/api/auth", authRoutes);
 
 // Ruta raíz
 app.get("/", (req, res) => {
-  res.send("🃏 Bienvenido al backend de Zolarium 🔮");
+  res.send("🃏 Bienvenido al backend de Zolarium 🔮\n");
 });
 
 // Conexión a la base de datos
