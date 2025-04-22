@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 import cardRoutes from "./backend/routes/cards.js";
-import reservationRoutes from "./backend/routes/reservations.js";
-import authRoutes from "./backend/routes/auth.js";
 
 dotenv.config();
 console.log("🧪 MONGODB_URI es:", process.env.MONGODB_URI);
@@ -17,10 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/cards", cardRoutes);
-app.use("/api/reservations", reservationRoutes);
-app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
+  console.log("✅ Petición GET / recibida");
   res.send("🃏 Bienvenido al backend de Zolarium 🔮");
 });
 
