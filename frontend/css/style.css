@@ -1,76 +1,68 @@
-/* General */
 body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #111;
+  color: #f8f8f2;
   margin: 0;
   padding: 0;
-  font-family: 'Press Start 2P', monospace;
-  background-color: #1b1b1b;
-  color: #ffffff;
-  display: flex;
 }
 
-a {
-  color: #ffcc00;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Sidebar */
 .sidebar {
-  width: 220px;
-  background-color: #0f0f0f;
-  padding: 20px;
-  height: 100vh;
-  box-shadow: 4px 0 0 #ffcc00;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #222;
+  padding: 20px;
+  border-right: 4px double #f1c40f;
+  z-index: 10;
 }
 
 .sidebar h2 {
-  color: #ffcc00;
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 14px;
+  color: #f1c40f;
+  margin-bottom: 20px;
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
-.sidebar li {
-  margin: 15px 0;
-}
-
-.sidebar a {
+.sidebar ul li a {
+  color: #f8f8f2;
+  text-decoration: none;
   display: block;
-  color: #ffffff;
+  padding: 10px 0;
+  border-bottom: 1px dotted #555;
 }
 
-/* Main Content */
+.sidebar ul li a:hover {
+  color: #f1c40f;
+  background-color: #333;
+}
+
 .main-content {
   margin-left: 240px;
-  padding: 40px;
-  width: 100%;
-}
-
-/* Navbar */
-.navbar {
-  border-bottom: 3px dashed #ffcc00;
-  padding-bottom: 20px;
-  margin-bottom: 40px;
-}
-
-/* Carousel */
-.carousel {
-  background-color: #292929;
-  border: 2px solid #ffcc00;
   padding: 20px;
-  font-size: 12px;
+}
+
+.navbar {
+  background-color: #000;
+  color: #f8f8f2;
+  padding: 15px 20px;
+  border: 2px solid #f1c40f;
   text-align: center;
-  min-height: 80px;
+}
+
+.carousel {
+  background-color: #1a1a1a;
+  border: 3px dashed #f1c40f;
+  padding: 40px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #f1c40f;
 }
 
 .slide {
@@ -81,80 +73,31 @@ a:hover {
   display: block;
 }
 
-/* Card Display */
-.card-display {
-  text-align: center;
+.card-container {
+  margin-top: 30px;
 }
 
-.card-display button {
-  background-color: #ffcc00;
-  border: none;
-  padding: 12px 24px;
-  font-size: 12px;
-  cursor: pointer;
-  margin-bottom: 30px;
-  font-family: 'Press Start 2P', monospace;
-}
-
-.card-display .card {
-  border: 2px solid #ffffff;
+.card-pixel {
+  background-color: #222;
+  border: 3px solid #f1c40f;
   padding: 20px;
-  max-width: 300px;
-  margin: 0 auto;
-  background-color: #2b2b2b;
-}
-
-.card-display img {
-  max-width: 100%;
-  height: auto;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Reserva Form */
-.reserva-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #2c2c2c;
-  padding: 20px;
-  border: 2px solid #ffcc00;
-}
-
-.reserva-form label {
-  display: block;
-  margin-top: 20px;
-  font-size: 10px;
-}
-
-.reserva-form input,
-.reserva-form select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 10px;
-  background-color: #111;
   color: #fff;
-  border: 1px solid #fff;
-}
-
-.reserva-form button {
-  background-color: #ffcc00;
-  color: #000;
-  border: none;
-  padding: 12px;
-  margin-top: 20px;
-  font-family: 'Press Start 2P', monospace;
-  cursor: pointer;
-  width: 100%;
+  text-align: center;
   font-size: 12px;
+  max-width: 300px;
+  margin: auto;
 }
 
-/* Bio */
-.bio p {
-  font-size: 10px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+.card-pixel img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.bio {
+  font-size: 12px;
+  background-color: #222;
+  border: 2px dashed #f1c40f;
+  padding: 20px;
+  margin-top: 20px;
 }
