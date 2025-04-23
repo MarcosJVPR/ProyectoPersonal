@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta del Día - Pixel Tarot</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>🕹️ Pixel Tarot</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carta.html">Carta del día</a></li>
+      <li><a href="reservar.html">Reservar sesión</a></li>
+      <li><a href="quien-soy.html">¿Quién soy?</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <nav class="navbar">
+      <h1>🃏 Tu Carta del Día</h1>
+    </nav>
+
+    <div class="card-display">
+      <button onclick="getCard()">✨ Revelar carta</button>
+      <div id="card" class="card hidden">
+        <img id="cardImage" src="" alt="Carta del día" class="pixel-img" />
+        <h2 id="cardName"></h2>
+        <p id="cardMeaning"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/carta.js"></script>
+</body>
+</html>

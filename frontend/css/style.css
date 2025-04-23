@@ -1,0 +1,160 @@
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  display: flex;
+}
+
+a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #0f0f0f;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 4px 0 0 #ffcc00;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h2 {
+  color: #ffcc00;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  display: block;
+  color: #ffffff;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 240px;
+  padding: 40px;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  border-bottom: 3px dashed #ffcc00;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+/* Carousel */
+.carousel {
+  background-color: #292929;
+  border: 2px solid #ffcc00;
+  padding: 20px;
+  font-size: 12px;
+  text-align: center;
+  min-height: 80px;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Card Display */
+.card-display {
+  text-align: center;
+}
+
+.card-display button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 12px 24px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.card-display .card {
+  border: 2px solid #ffffff;
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #2b2b2b;
+}
+
+.card-display img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Reserva Form */
+.reserva-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #2c2c2c;
+  padding: 20px;
+  border: 2px solid #ffcc00;
+}
+
+.reserva-form label {
+  display: block;
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.reserva-form input,
+.reserva-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.reserva-form button {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+/* Bio */
+.bio p {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

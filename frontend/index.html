@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zolarium – Tarot Cósmico</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Macondo&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="particles"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Tarot - Inicio</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>🕹️ Pixel Tarot</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carta.html">Carta del día</a></li>
+      <li><a href="reservar.html">Reservar sesión</a></li>
+      <li><a href="quien-soy.html">¿Quién soy?</a></li>
+    </ul>
+  </div>
 
-    <main class="container">
-      <h1>Zolarium</h1>
-      <p class="subtitle">Tarot Cósmico por Marcos Pérez</p>
+  <div class="main-content">
+    <nav class="navbar">
+      <h1>Bienvenido a Pixel Tarot</h1>
+    </nav>
 
-      <button onclick="getCard()">🔮 Tirar carta del día</button>
+    <div class="carousel">
+      <div class="slide active">Carta diaria</div>
+      <div class="slide">Elige</div>
+      <div class="slide">Conecta</div>
+      <div class="slide">Conoce</div>
+    </div>
+  </div>
 
-      <div id="card" class="card hidden">
-        <img id="cardImage" src="" alt="Carta del día" />
-        <h2 id="cardName"></h2>
-        <p id="cardMeaning"></p>
-      </div>
-    </main>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
 </html>

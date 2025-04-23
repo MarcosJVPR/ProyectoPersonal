@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservar sesión - Pixel Tarot</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>🕹️ Pixel Tarot</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carta.html">Carta del día</a></li>
+      <li><a href="reservar.html">Reservar sesión</a></li>
+      <li><a href="quien-soy.html">¿Quién soy?</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <nav class="navbar">
+      <h1>📅 Reserva tu sesión</h1>
+    </nav>
+
+    <form class="reserva-form" action="mailto:tuemail@example.com" method="POST">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required />
+
+      <label>Correo electrónico</label>
+      <input type="email" name="email" required />
+
+      <label>Fecha y hora preferida</label>
+      <input type="datetime-local" name="fecha" required />
+
+      <label>Tipo de sesión</label>
+      <select name="tipo">
+        <option value="1h">1 hora - 50€</option>
+        <option value="30m">30 minutos - 30€</option>
+        <option value="especial">Tirada especial - 15€</option>
+      </select>
+
+      <button type="submit">🎮 Reservar ahora</button>
+    </form>
+  </div>
+</body>
+</html>
