@@ -1,0 +1,14 @@
+{
+  "name": "proyecto-personal",
+  "version": "1.0.0",
+  "description": "Pixel Tarot es una experiencia web mística donde el tarot, la intuición y el diseño se encuentran.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "author": "Marcos Pérez",
+  "license": "ISC"
+}

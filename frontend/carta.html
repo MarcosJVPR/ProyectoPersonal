@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carta del Día - Pixel Tarot</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
-
-<body>
+<body class="bg-dark text-light">
   <div class="sidebar">
     <h2>🕹️ Pixel Tarot</h2>
     <ul>
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="carta.html" class="active">Carta del día</a></li>
-      <li><a href="reservar.html">Reservar sesión</a></li>
-      <li><a href="quien-soy.html">¿Quién soy?</a></li>
+      <li><a href="carta.html">Carta del Día</a></li>
+      <li><a href="reservar.html">Reservar Sesión</a></li>
+      <li><a href="quien-soy.html">¿Quién Soy?</a></li>
     </ul>
   </div>
 
-  <div class="main-content container py-5">
-    <nav class="navbar bg-dark navbar-dark px-4 mb-4">
-      <h1 class="navbar-brand m-0">Carta del Día</h1>
-    </nav>
+  <div class="main-content">
+    <header class="text-center mb-5">
+      <h1 class="display-4 fw-bold">🃏 Carta del Día</h1>
+      <p class="lead">Tu guía espiritual para hoy</p>
+    </header>
 
-    <div id="card-container" class="text-center bg-dark text-light p-4 rounded border border-light" style="max-width: 500px; margin: auto;">
-      <h2 id="card-name" class="mb-3">Cargando...</h2>
-      <img id="card-image" src="" alt="" class="img-fluid pixel-border mb-3" style="image-rendering: pixelated;">
-      <p id="card-meaning" class="lead"></p>
+    <div class="text-center">
+      <img src="https://i.pinimg.com/736x/af/b1/ff/afb1ff74e9803904edc001422d77aab6.jpg" alt="Carta del día" class="img-fluid rounded mb-3" style="max-width: 300px;">
+      <p class="fs-5">Esta carta representa un nuevo comienzo y claridad emocional. Confía en tu intuición hoy.</p>
     </div>
   </div>
 
-  <script>
-    fetch("https://jubilant-space-carnival-5v5qxppxg52945-5000.app.github.dev/api/cards/daily")
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("card-name").textContent = data.name;
-        document.getElementById("card-image").src = data.image;
-        document.getElementById("card-meaning").textContent = data.meaning;
-      })
-      .catch(err => {
-        document.getElementById("card-name").textContent = "Error al conectar con los astros.";
-        document.getElementById("card-meaning").textContent = "Intenta de nuevo.";
-      });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <footer class="text-end">
+    <p>© 2025 Pixel Tarot. Hecho con 🧡 y misterio.</p>
+  </footer>
 </body>
-
 </html>

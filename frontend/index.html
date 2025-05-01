@@ -4,60 +4,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel Tarot - Inicio</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <title>Pixel Tarot - Slides</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <div class="sidebar">
-    <h2>🕹️ Pixel Tarot</h2>
+<body class="bg-dark text-light">
+  <div id="tsparticles"></div>
+
+  <div class="sidebar col-sm-4 col-md-4 col-lg-3">
+    <h2>Pixel Tarot</h2>
     <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="carta.html">Carta del día</a></li>
-      <li><a href="reservar.html">Reservar sesión</a></li>
-      <li><a href="quien-soy.html">¿Quién soy?</a></li>
+      <li><a href="#slide0">Inicio</a></li>
+      <li><a href="#slide1">Carta del Día</a></li>
+      <li><a href="#slide2">Reservar Sesión</a></li>
+      <li><a href="#slide3">¿Quién Soy?</a></li>
     </ul>
   </div>
 
-  <div class="main-content">
-    <nav class="navbar bg-dark navbar-dark px-4 mb-4">
-      <h1 class="navbar-brand m-0">Bienvenido a Pixel Tarot</h1>
-    </nav>
+  <div class="slides-wrapper">
+    <div class="scene" id="slide0">
+      <div class="main-content text-center">
+        <h1 class="display-4 fw-bold"> Pixel Tarot </h1>
+        <p class="lead">Descubre lo invisible. Conecta con tu destino.</p>
 
-    <div id="carouselPixel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/carta.png" class="d-block w-100" alt="Carta diaria">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/elige.png" class="d-block w-100" alt="Elige tu camino">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/conecta.png" class="d-block w-100" alt="Conecta">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/conoce.png" class="d-block w-100" alt="Conoce">
+        <div id="tarotCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://i.pinimg.com/736x/af/b1/ff/afb1ff74e9803904edc001422d77aab6.jpg" class="d-block w-100 rounded" alt="Carta diaria">
+              <div class="carousel-caption">
+                <h5>Carta del Día</h5>
+                <p>Descubre lo que te depara el día.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/736x/39/30/38/393038b536a9c0887ad2d47a1fffed00.jpg" class="d-block w-100 rounded" alt="Elige tu camino">
+              <div class="carousel-caption">
+                <h5>Elige tu Camino</h5>
+                <p>Explora las posibilidades que el tarot tiene para ti.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/736x/9c/c3/93/9cc393a5765818b0e874cc49cfe98a35.jpg" class="d-block w-100 rounded" alt="Conecta">
+              <div class="carousel-caption">
+                <h5>Conecta</h5>
+                <p>Encuentra claridad en tus decisiones.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#tarotCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#tarotCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
         </div>
       </div>
-      <div class="music-toggle text-center my-4">
-        <button id="music-btn" class="btn btn-outline-light px-4">🎵 Activar música</button>
-      </div>
+    </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselPixel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselPixel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
+    <div class="scene" id="slide1">
+      <div class="main-content text-center">
+        <h2 class="mb-4">Carta del Día</h2>
+        <img src="https://i.pinimg.com/736x/af/b1/ff/afb1ff74e9803904edc001422d77aab6.jpg" class="rounded tarot-card mb-3" alt="Carta del día">
+        <p>Conoce el mensaje que el universo tiene para ti hoy.</p>
+      </div>
+    </div>
+
+    <div class="scene" id="slide2">
+      <div class="main-content text-center">
+        <h2 class="mb-4">Reservar Sesión</h2>
+        <form class="mx-auto" style="max-width: 500px;">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Nombre completo" required />
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Correo electrónico" required />
+          </div>
+          <div class="mb-3">
+            <select class="form-select" required>
+              <option selected disabled>Tipo de sesión</option>
+              <option>1 hora - 50€</option>
+              <option>30 minutos - 30€</option>
+              <option>Tirada especial - 15€</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input type="datetime-local" class="form-control" required />
+          </div>
+          <button class="btn btn-outline-light px-5 mt-3">Reservar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="scene" id="slide3">
+      <div class="main-content text-center">
+        <h2 class="mb-4">¿Quién Soy?</h2>
+        <p>Hola, soy Marcos Pérez, el alma detrás de Pixel Tarot. Aunque solía ser escéptico, el tarot me enseñó a confiar en los símbolos y en la intuición. Este proyecto nace para compartir esa magia contigo.</p>
+        <p>Con una trayectoria de más de 10 años entre las artes escénicas y espirituales, combino sensibilidad artística y profundidad simbólica para ayudarte a ver con el corazón.</p>
+        <p>Gracias por confiar en este viaje. Que los astros te acompañen. 🕯️</p>
+      </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.scene');
+
+    function updateSlidePosition() {
+      slides.forEach((slide, index) => {
+        slide.style.transform = `translateY(${(index - currentSlide) * 100}vh)`;
+      });
+    }
+
+    window.addEventListener('wheel', (e) => {
+      if (e.deltaY > 50 && currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlidePosition();
+      } else if (e.deltaY < -50 && currentSlide > 0) {
+        currentSlide--;
+        updateSlidePosition();
+      }
+    });
+
+    updateSlidePosition();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: true, zIndex: -1 },
+    particles: {
+      number: { value: 50 },
+      color: { value: "#ff6f00" }, 
+      shape: { type: "circle" },
+      opacity: { value: 0.8, random: true },
+      size: { value: 2.5, random: true },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: "top",           
+        straight: false,            
+        outModes: { default: "out" }
+      }
+    },
+    background: {
+      color: "#0e001a"
+    }
+  });
+</script>
+
+
 </body>
 
 </html>
