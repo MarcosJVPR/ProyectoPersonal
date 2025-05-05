@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel Tarot - Fondo largo</title>
+  <title>Pixel Tarot</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-dark text-light" style="background-image: url('frontend/assets/long-bg.png'); background-size: cover; background-repeat: no-repeat; background-attachment: scroll; background-position: top center;">
+<body class="bg-dark text-light">
   <div id="tsparticles"></div>
-
-  <div class="sidebar col-sm-4 col-md-4 col-lg-3">
+  <button class="btn btn-danger m-3" id="toggle-sidebar">☰ Menú</button>
+  <div class="sidebar" id="sidebar">
     <h2>Pixel Tarot</h2>
     <ul>
       <li><a href="#slide0">Inicio</a></li>
@@ -21,78 +21,88 @@
       <li><a href="#slide2">Reservar Sesión</a></li>
       <li><a href="#slide3">¿Quién Soy?</a></li>
     </ul>
+    <button class="btn btn-outline-light mt-3" id="close-sidebar">✖ Cerrar</button>
   </div>
 
-  <div class="main-content" style="margin-left: 250px;">
-    <section id="slide0" class="scene py-5">
-      <div class="main-content text-center">
-        <h1 class="display-4 fw-bold"> Pixel Tarot </h1>
-        <p class="lead">Descubre lo invisible. Conecta con tu destino.</p>
-
-        <div id="tarotCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../frontend/assets/Horizontal.png" class="d-block w-100 rounded" alt="Carta diaria">
-              <div class="carousel-caption">
-                <h5>Carta del Día</h5>
-                <p>Descubre lo que te depara el día.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="https://i.pinimg.com/736x/39/30/38/393038b536a9c0887ad2d47a1fffed00.jpg" class="d-block w-100 rounded" alt="Elige tu camino">
-              <div class="carousel-caption">
-                <h5>Elige tu Camino</h5>
-                <p>Explora las posibilidades que el tarot tiene para ti.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="https://i.pinimg.com/736x/9c/c3/93/9cc393a5765818b0e874cc49cfe98a35.jpg" class="d-block w-100 rounded" alt="Conecta">
-              <div class="carousel-caption">
-                <h5>Conecta</h5>
-                <p>Encuentra claridad en tus decisiones.</p>
-              </div>
+  <div class="main-content">
+    <section id="slide0" class="scene py-5 text-center">
+      <h1 class="display-4 fw-bold">Pixel Tarot</h1>
+      <p class="lead">Descubre lo invisible. Conecta con tu destino.</p>
+      <div id="tarotCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/mix.png" class="d-block w-100 rounded" alt="Carta 1">
+            <div class="carousel-caption">
+              <h5>Mensaje Místico</h5>
+              <p>Explora lo que el tarot tiene reservado para ti.</p>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#tarotCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#tarotCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
+          <div class="carousel-item">
+            <img src="assets/mago.png" class="d-block w-100 rounded" alt="Carta 2">
+            <div class="carousel-caption">
+              <h5>El Mago</h5>
+              <p>Activa tu poder creador.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/sol.png" class="d-block w-100 rounded" alt="Carta 3">
+            <div class="carousel-caption">
+              <h5>El Sol</h5>
+              <p>Tiempo de claridad y verdad.</p>
+            </div>
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#tarotCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#tarotCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
+      <button id="music-btn" class="btn btn-danger mt-4">🎵 Activar música</button>
     </section>
 
     <section id="slide1" class="scene py-5 text-center">
       <h2 class="mb-4">Carta del Día</h2>
-      <img src="https://i.pinimg.com/736x/af/b1/ff/afb1ff74e9803904edc001422d77aab6.jpg" class="rounded tarot-card mb-3" alt="Carta del día">
+      <img src="assets/luna.png" class="rounded tarot-card mb-3" alt="Carta del día">
       <p>Conoce el mensaje que el universo tiene para ti hoy.</p>
     </section>
 
     <section id="slide2" class="scene py-5 text-center">
       <h2 class="mb-4">Reservar Sesión</h2>
-      <form class="mx-auto" style="max-width: 500px;">
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Nombre completo" required />
-        </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Correo electrónico" required />
-        </div>
-        <div class="mb-3">
-          <select class="form-select" required>
-            <option selected disabled>Tipo de sesión</option>
-            <option>1 hora - 50€</option>
-            <option>30 minutos - 30€</option>
-            <option>Tirada especial - 15€</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <input type="datetime-local" class="form-control" required />
-        </div>
-        <button class="btn btn-outline-light px-5 mt-3">Reservar</button>
-      </form>
+      <div class="form-container mx-auto" style="max-width: 600px;">
+        <form id="reserva-form">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" required />
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Correo electrónico" required />
+          </div>
+          <div class="mb-3">
+            <select class="form-select" id="sesion" required>
+              <option selected disabled>Tipo de sesión</option>
+              <option>Consulta Rápida - 3€</option>
+              <option>Exploración Dual - 5€</option>
+              <option>Inmersión Breve - 15€</option>
+              <option>Viaje Profundo - 30€</option>
+              <option>Sesión Completa - 50€</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" id="fecha" required>
+              <option selected disabled>Selecciona una fecha</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" id="hora" required>
+              <option selected disabled>Selecciona una hora</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-light px-5 mt-3">Reservar</button>
+        </form>
+      </div>
     </section>
 
     <section id="slide3" class="scene py-5 text-center">
@@ -105,28 +115,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: -1 },
-      particles: {
-        number: { value: 50 },
-        color: { value: "#ff6f00" },
-        shape: { type: "circle" },
-        opacity: { value: 0.8, random: true },
-        size: { value: 2.5, random: true },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "top",
-          straight: false,
-          outModes: { default: "out" }
-        }
-      },
-      background: {
-        color: "#0e001a"
-      }
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
