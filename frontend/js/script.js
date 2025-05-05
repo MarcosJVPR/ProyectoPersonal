@@ -145,3 +145,23 @@ form.addEventListener("submit", async (e) => {
     alert("Hubo un problema de conexión. Intenta nuevamente más tarde.");
   }
 });
+fetch("https://script.google.com/macros/s/AKfycbyiuUoMx03gVCRggii5RDmIHsq1t0IlCA7GRMwCo-6bB59eAx3xizSxOQn1twVDqV_x/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(datos)
+})
+.then(res => res.json())
+.then(result => {
+  if (result.result === "success") {
+    alert("¡Reserva enviada con éxito!");
+    form.reset();
+  } else {
+    alert("⚠️ Error: " + result.message);
+  }
+})
+.catch(err => {
+  console.error("Error al conectar con Google Sheets:", err);
+  alert("Hubo un problema de conexión. Intenta nuevamente más tarde.");
+});
