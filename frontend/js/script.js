@@ -1,4 +1,3 @@
-// Partículas de fondo
 tsParticles.load("tsparticles", {
   fullScreen: { enable: true, zIndex: -1 },
   particles: {
@@ -11,7 +10,6 @@ tsParticles.load("tsparticles", {
   }
 });
 
-// Música de fondo
 const bgMusic = new Audio("assets/Musica.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.2;
@@ -21,15 +19,14 @@ musicBtn.addEventListener("click", () => {
   if (!musicEnabled) {
     bgMusic.play();
     musicEnabled = true;
-    musicBtn.textContent = "🔇 Detener música";
+    musicBtn.textContent = "Detener música";
   } else {
     bgMusic.pause();
     musicEnabled = false;
-    musicBtn.textContent = "🎵 Activar música";
+    musicBtn.textContent = "Activar música";
   }
 });
 
-// Sidebar
 const sidebar = document.getElementById("sidebar");
 const toggleBtn = document.getElementById("toggle-sidebar");
 const closeBtn = document.getElementById("close-sidebar");
@@ -40,7 +37,8 @@ closeBtn?.addEventListener("click", () => {
   sidebar.classList.remove("active");
 });
 
-// Fechas y horas
+const BACKEND_URL = "https://proyectopersonal-kx96.onrender.com";
+
 const fechaSelect = document.getElementById("fecha");
 const horaSelect = document.getElementById("hora");
 
@@ -82,34 +80,25 @@ const generarHoras = () => {
 generarFechas();
 generarHoras();
 
-// Bloqueo de horarios reservados desde Google Sheets
-let dataReservas = {};
-fetch("https://script.google.com/macros/s/AKfycbyiuUoMx03gVCRggii5RDmIHsq1t0IlCA7GRMwCo-6bB59eAx3xizSxOQn1twVDqV_x/exec")
-  .then(res => res.json())
-  .then(data => {
-    dataReservas = data;
-
-    fechaSelect.addEventListener("change", () => {
-      const fecha = fechaSelect.value;
-      const horasReservadas = dataReservas[fecha] || [];
-
+fechaSelect.addEventListener("change", () => {
+  const fecha = fechaSelect.value;
+  fetch(`${BACKEND_URL}/api/reservas?fecha=${fecha}`)
+    .then(res => res.json())
+    .then(data => {
+      const horasReservadas = data[fecha] || [];
       for (const option of horaSelect.options) {
-        option.disabled = false;
-        if (horasReservadas.includes(option.value)) {
-          option.disabled = true;
-        }
+        option.disabled = horasReservadas.includes(option.value);
       }
-    });
-  });
+    })
+    .catch(() => {});
+});
 
-// Envío del formulario
 const form = document.getElementById("reserva-form");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   const horaSeleccionada = document.getElementById("hora").selectedOptions[0];
   if (horaSeleccionada.disabled) {
-    alert("⚠️ La hora seleccionada ya está reservada. Por favor, elige otra.");
+    alert("La hora seleccionada ya está reservada. Por favor, elige otra.");
     return;
   }
 
@@ -122,46 +111,20 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyiuUoMx03gVCRggii5RDmIHsq1t0IlCA7GRMwCo-6bB59eAx3xizSxOQn1twVDqV_x/exec", {
+    const response = await fetch(`${BACKEND_URL}/api/reservas`, {
       method: "POST",
-      body: JSON.stringify(datos),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos)
     });
 
     const result = await response.json();
-
     if (result.result === "success") {
-      alert("✨ ¡Reserva enviada con éxito! Revisa tu correo para la confirmación.");
+      alert("Reserva enviada con éxito.");
       form.reset();
     } else {
-      const mensaje = result.message || "Error desconocido al enviar la reserva.";
-      alert(`⚠️ Error: ${mensaje}`);
+      alert("Error: " + (result.message || "No se pudo completar la reserva."));
     }
-
-  } catch (error) {
-    console.error("Error al conectar con Google Sheets:", error);
+  } catch {
     alert("Hubo un problema de conexión. Intenta nuevamente más tarde.");
   }
-});
-fetch("https://script.google.com/macros/s/AKfycbyiuUoMx03gVCRggii5RDmIHsq1t0IlCA7GRMwCo-6bB59eAx3xizSxOQn1twVDqV_x/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(datos)
-})
-.then(res => res.json())
-.then(result => {
-  if (result.result === "success") {
-    alert("¡Reserva enviada con éxito!");
-    form.reset();
-  } else {
-    alert("⚠️ Error: " + result.message);
-  }
-})
-.catch(err => {
-  console.error("Error al conectar con Google Sheets:", err);
-  alert("Hubo un problema de conexión. Intenta nuevamente más tarde.");
 });
