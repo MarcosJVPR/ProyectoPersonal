@@ -3,12 +3,16 @@ body {
   margin: 0;
   color: #f8f8f8;
   background-color: #0a0016;
-  background-image: url('../assets/long-bg.png'); 
+  background-image: url('../assets/long-bg.webp');
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover;
-  background-attachment: scroll;
+  background-size: 100% auto;
+  background-attachment: fixed;
   overflow-x: hidden;
+}
+
+html, body {
+  min-height: 100vh;
 }
 
 h1, h2 {
@@ -26,7 +30,6 @@ img {
   border-radius: 10px;
 }
 
-/* === Sidebar === */
 .sidebar {
   position: fixed;
   top: 0;
@@ -76,7 +79,6 @@ img {
   margin-top: 1rem;
 }
 
-/* === Main Content === */
 .main-content {
   margin-left: 0;
   padding: 2rem;
@@ -89,10 +91,9 @@ img {
   }
 }
 
-/* === Carousel === */
 .carousel-inner img {
   object-fit: contain;
-  width: 100;
+  width: 100%;
   max-height: 60vh;
 }
 
@@ -103,7 +104,6 @@ img {
   font-size: 0.9rem;
 }
 
-/* === Form === */
 .form-container form {
   background: rgba(28, 10, 45, 0.9);
   border: 2px solid transparent;
@@ -140,13 +140,11 @@ form button:hover {
   transform: scale(1.05);
 }
 
-/* === Tarot Card Hover === */
 .tarot-card:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* === Section Layout === */
 section {
   padding: 4rem 2rem;
   margin-bottom: 3rem;
@@ -157,7 +155,6 @@ section h2 {
   text-align: center;
 }
 
-/* === Footer === */
 footer {
   font-size: 0.8rem;
   color: #aaa;
@@ -165,7 +162,26 @@ footer {
   text-align: center;
 }
 
-/* === Scrollbar Hidden === */
 ::-webkit-scrollbar {
   display: none;
+}
+
+body.admin {
+  background-color: #1a001a;
+  background-image: none;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.table thead {
+  background-color: #3d003d;
+}
+
+.highlight {
+  background-color: #ff6f00 !important;
+  color: black;
+}
+
+.admin input,
+.admin select {
+  font-family: 'Playfair Display', serif;
 }
